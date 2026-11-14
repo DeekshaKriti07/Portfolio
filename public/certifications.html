@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="./">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Certifications & Publications — Deeksha Kriti</title>
+  <meta name="description" content="Verified certifications and publications of Deeksha Kriti: Frontend Developer (React), IJVRA RuralDoc AI research paper, HackerRank Orchestrate rank 761 of 4,094, and hackathon awards." />
+  <meta name="theme-color" content="#29335C" />
+  <meta property="og:title" content="Certifications & Publications — Deeksha Kriti" />
+  <meta property="og:image" content="media/certificates/hackerrank-frontend-react.jpg" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <script type="module" crossorigin src="./assets/certifications.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/ui-hJOf-9t6.js">
+  <link rel="modulepreload" crossorigin href="./assets/common-CXaJzYHh.js">
+  <link rel="stylesheet" crossorigin href="./assets/ui-CPzsqYSy.css">
+  <link rel="stylesheet" href="assets/projects.css">
+</head>
+<body data-page="certifications">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav"></header>
+
+  <main id="main">
+    <section class="page-head">
+      <div class="wrap page-head__grid">
+        <div>
+          <p class="kicker" data-intro="eyebrow">Verified Credentials & Research</p>
+          <h1 data-hero-headline>Certifications<br><em>& Publications.</em></h1>
+        </div>
+        <p class="lead" data-intro="sub">
+          A categorized gallery of my hackathon achievements, technical certifications, and peer-reviewed research publications. Click any certificate to inspect full resolution, credentials, verification, and live demo links.
+        </p>
+      </div>
+    </section>
+
+    <figure class="wrap page-band">
+      <div class="ph ph--wide">
+        <div class="px" data-px="6">
+          <img class="ph__img" src="media/img/credentials-studio.svg" alt="Vintage illustration of certificates, a project notebook and a medal in cream, navy and rust" width="1920" height="1080" />
+        </div>
+      </div>
+    </figure>
+
+    <section class="wrap cert-gallery-sec" aria-label="Certifications Gallery">
+      <div class="eps__tools">
+        <label class="search">
+          <span class="sr">Search certifications</span>
+          <input type="search" data-cert-search placeholder="Search certificates, skills, hackathons..." />
+        </label>
+        <div class="chips" role="group" aria-label="Category" data-cert-topics></div>
+        <span class="eps__count" data-cert-count></span>
+      </div>
+
+      <div class="cert-grid" data-cert-grid></div>
+      <p class="empty" data-cert-empty hidden>Nothing found matching that filter. Try another keyword or switch category.</p>
+    </section>
+
+    <!-- Interactive Lightbox Modal -->
+    <div class="cert-modal" id="certModal" role="dialog" aria-modal="true" aria-labelledby="cert-modal-title" aria-hidden="true" hidden>
+      <div class="cert-modal__backdrop" data-modal-close></div>
+      <div class="cert-modal__dialog">
+        <button type="button" class="cert-modal__close" data-modal-close aria-label="Close modal">✕</button>
+        <div class="cert-modal__content">
+          <div class="cert-modal__viewer">
+            <button type="button" class="cert-modal__nav cert-modal__nav--prev" data-modal-prev aria-label="Previous certificate">‹</button>
+            <div class="cert-modal__img-wrap">
+              <img class="cert-modal__img" src="" alt="" />
+            </div>
+            <button type="button" class="cert-modal__nav cert-modal__nav--next" data-modal-next aria-label="Next certificate">›</button>
+          </div>
+          <div class="cert-modal__info">
+            <div class="cert-modal__tags">
+              <span class="cert-pill" data-modal-category></span>
+              <span class="cert-meta-item" data-modal-issuer></span>
+              <span class="cert-meta-item" data-modal-date></span>
+            </div>
+            <h2 id="cert-modal-title" class="cert-modal__title" data-modal-title></h2>
+            <p class="cert-modal__desc" data-modal-desc></p>
+            <div class="cert-modal__cred" data-modal-cred-wrap>
+              <span class="mono" data-modal-cred></span>
+            </div>
+            <div class="cert-modal__actions" data-modal-actions></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="foot"></footer>
+</body>
+</html>

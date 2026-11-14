@@ -1,0 +1,1 @@
+import{b as e,c as o,d as t,f as n,s as r,i,h as l,l as d,n as p,o as c,p as m,q as u,u as T,T as b,B as f,L as h,C}from"./ui-hJOf-9t6.js";function E(a,s){document.title=s,e(b),o({...C,links:h,brand:f}),t(a),n(),r(i()),l()}function I(){d(),p(),c(),m(),u(),T()}export{E as b,I as s};

@@ -1,0 +1,31 @@
+{
+  "name": "deeksha-portfolio",
+  "version": "2.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22 <25"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "db:migrate": "node server/manage.js migrate",
+    "db:seed": "node server/manage.js seed",
+    "test": "node --test tests/*.test.js",
+    "check": "node scripts/check.mjs",
+    "verify": "npm run check && npm test",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "dotenv": "17.2.3",
+    "express": "5.1.0",
+    "express-rate-limit": "8.7.4",
+    "helmet": "8.1.0",
+    "pg": "8.16.3"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.3.14",
+    "@playwright/test": "1.65.1",
+    "jsdom": "26.1.0"
+  }
+}

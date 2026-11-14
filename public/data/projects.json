@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "jarvis-ai",
+    "title": "Jarvis AI",
+    "event": "IBM Bob 2.0 Hackathon",
+    "status": "Hackathon project",
+    "summary": "A conversational voice-assistant project focused on a natural speak, listen and respond experience.",
+    "problem": "Traditional text-only assistants require users to type every request and switch between input and response screens. The project explores a more accessible, voice-first interaction with clear feedback during each stage of a conversation.",
+    "solution": "The proposed assistant combines microphone input, speech recognition, an AI response and spoken playback in one interface. Listening, thinking and speaking states help users understand what the assistant is doing.",
+    "workflow": [
+      "Capture a spoken request through the microphone.",
+      "Convert speech into text and pass the request to the assistant.",
+      "Generate a relevant response for the request.",
+      "Display the response and play it through text-to-speech.",
+      "Return to the listening state for the next conversational turn."
+    ],
+    "output": "An interactive voice-assistant experience, with conversational responses and visible interaction states. The repository is linked below for the project source.",
+    "technologies": [
+      "Voice input",
+      "Speech-to-text",
+      "Conversational AI",
+      "Text-to-speech"
+    ],
+    "repo": "https://github.com/DeekshaKriti07/Jarvis-AI.git",
+    "certificate": "cert-ibmbob",
+    "scope": "Focus: voice interaction, conversational continuity and clear assistant states."
+  },
+  {
+    "slug": "civicshield",
+    "title": "CivicShield",
+    "event": "HACKDAY 1.0",
+    "status": "Hackathon prototype",
+    "summary": "A civic-incident platform that connects citizen reports with verification, prioritisation and response planning.",
+    "problem": "Civic issues arrive as scattered reports with incomplete context, duplicate descriptions and inconsistent urgency. This makes it difficult to identify the right department and keep the response process visible.",
+    "solution": "CivicShield organises an incident into a structured workflow: classify the issue, verify available evidence, assess risk, route it to a relevant department and prepare a response plan. Human approval remains part of the proposed dispatch process.",
+    "workflow": [
+      "Receive an incident report with location and supporting context.",
+      "Classify the incident and check for duplicate or conflicting reports.",
+      "Assess risk and identify the responsible department or team.",
+      "Prepare an explainable response plan for human review.",
+      "Simulate dispatch and track the incident towards resolution."
+    ],
+    "output": "A structured incident assessment containing incident type, confidence, verification, risk, department or team, and a response plan, supported by a location-based incident view.",
+    "technologies": [
+      "React",
+      "Python / FastAPI",
+      "Leaflet",
+      "Agent workflows"
+    ],
+    "repo": "https://github.com/DeekshaKriti07/CivicShield",
+    "certificate": "cert-hackday",
+    "scope": "Prototype scope: human-reviewed response planning and simulated dispatch."
+  },
+  {
+    "slug": "orchestrate-october",
+    "title": "Ghost Data Still Exists",
+    "event": "HackerRank Orchestrate · October 2026",
+    "status": "Submission completed",
+    "summary": "An evidence-driven deletion-audit agent for identifying incomplete deletion and data resurrection risks.",
+    "problem": "A deletion request can appear complete while copies, historical identifiers, retained records or active import and restore paths still expose or recreate personal data. The challenge is to determine the true state at each audit cutoff.",
+    "solution": "Reconstruct the relevant identifiers, inspect cross-system evidence and apply deletion and retention rules at the case audit time. Report a case decision together with traceable steps rather than treating a reported success message as sufficient proof.",
+    "workflow": [
+      "Read case records, policies and evidence files.",
+      "Link current and historical identifiers to the correct case.",
+      "Evaluate evidence against audit_at and the applicable retention rules.",
+      "Check copies and sync, import or restore paths for resurrection risk.",
+      "Produce case-level decisions and validate the required CSV structure."
+    ],
+    "output": "Challenge deliverables: output.csv with case_id, deletion_status and steps_json; a code archive; and a conversation log documenting the investigation and submission workflow.",
+    "technologies": [
+      "Python",
+      "CSV processing",
+      "Evidence parsing",
+      "Policy rules",
+      "Audit trails"
+    ],
+    "repo": "",
+    "certificate": "cert-orchestrate",
+    "scope": "Challenge scope: evidence-based decisions at a defined audit cutoff."
+  },
+  {
+    "slug": "orchestrate-september",
+    "title": "Evidence-Based Payment Planning",
+    "event": "HackerRank Orchestrate · September 2026",
+    "status": "Challenge participation",
+    "summary": "A financial-data challenge exploring payment decisions from structured records and local media.",
+    "problem": "A requested payment must be considered alongside future commitments, available funds and evidence spread across financial records, messages and images. A single balance is insufficient to explain affordability over time.",
+    "solution": "The proposed pipeline joins financial profiles, events, messages, OCR-extracted evidence and exchange rates, then applies a forecast and payment-planning rules to explain safe payment options.",
+    "workflow": [
+      "Load the supplied CSV records and local media.",
+      "Extract useful text from images and associate evidence with requests.",
+      "Combine financial events, obligations and exchange-rate context.",
+      "Build a 90-day forecast and evaluate payment options.",
+      "Export decisions in the required schema and preserve the investigation log."
+    ],
+    "output": "The challenge output describes safe payment amount, affordability status, recommended payment method, payment plan, earliest full-payment date, suggested spending changes and a decision explanation for each request.",
+    "technologies": [
+      "Python",
+      "OCR",
+      "CSV processing",
+      "Forecasting",
+      "Rule-based decisions"
+    ],
+    "repo": "",
+    "certificate": "",
+    "scope": "Challenge scope: OCR-assisted evidence extraction and explainable payment planning."
+  },
+  {
+    "slug": "geovex",
+    "title": "GeoVex · Flood Intelligence",
+    "event": "NASA Space Apps Challenge",
+    "status": "Challenge concept",
+    "summary": "A satellite-informed flood-response concept that asks both where damage occurred and which communities are cut off.",
+    "problem": "Flood extent alone does not show whether roads and bridges remain usable or whether communities can reach hospitals. Responders need combined evidence about water, infrastructure, population exposure and access.",
+    "solution": "The proposed approach combines before-and-after satellite imagery with elevation, road networks, population layers and field reports. Geospatial and connectivity analysis would support a map of affected areas, disconnected communities and response priorities.",
+    "workflow": [
+      "Collect SAR or optical imagery and contextual geographic layers.",
+      "Align the inputs to a shared geographic reference.",
+      "Compare pre-event and post-event observations for flood and infrastructure changes.",
+      "Analyse road connectivity, population exposure and access to facilities.",
+      "Present map layers, evidence and prioritised areas for field verification."
+    ],
+    "output": "Proposed outputs include flood and infrastructure layers, isolation alerts, facility-access views and explainable response summaries. These describe the concept, not a verified operational disaster-response service.",
+    "technologies": [
+      "Satellite imagery",
+      "GIS",
+      "Road-network analysis",
+      "Evidence fusion"
+    ],
+    "repo": "",
+    "certificate": "cert-nasa",
+    "scope": "Concept scope: geospatial evidence and connectivity analysis for flood response."
+  },
+  {
+    "slug": "meta-global-ai",
+    "title": "Meta Global AI Developer Hackathon",
+    "event": "Meta Global AI Developer Hackathon",
+    "status": "Team participation",
+    "summary": "We participated as a team in the Meta Global AI Developer Hackathon, bringing our interest in practical AI applications to a global developer community.",
+    "problem": "The event provided an opportunity to explore real-world problems through AI and collaborate within a time-bound hackathon setting.",
+    "solution": "Our participation focused on collaborative problem-solving and exploring how AI can support useful applications.",
+    "workflow": [],
+    "output": "Team participation in the Meta Global AI Developer Hackathon.",
+    "technologies": [
+      "AI development",
+      "Team collaboration",
+      "Problem-solving"
+    ],
+    "repo": "",
+    "certificate": "",
+    "scope": "Participation focus: collaborative problem-solving and practical AI exploration."
+  },
+  {
+    "slug": "campuslink",
+    "title": "CampusLink",
+    "event": "Campus collaboration project",
+    "status": "Live application",
+    "summary": "A platform that brings student collaboration and campus opportunities into one place.",
+    "problem": "Students need a convenient way to find peers with complementary skills, connect around projects and keep up with campus events.",
+    "solution": "CampusLink brings together SkillSwap, a Project Collaboration Finder, an Event Calendar and an AI Resume Generator.",
+    "workflow": [
+      "Explore skills and connect with peers.",
+      "Find collaborators for a project.",
+      "Browse campus events.",
+      "Create a resume using the resume generator."
+    ],
+    "output": "A live campus collaboration application with tools for skills, projects, events and resume creation.",
+    "technologies": [
+      "Campus collaboration",
+      "Skill sharing",
+      "Project discovery"
+    ],
+    "repo": "",
+    "live": "https://campuslink-rz6d.onrender.com",
+    "certificate": "",
+    "scope": "Explore the live application to see the current features."
+  }
+]

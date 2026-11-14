@@ -1,0 +1,1 @@
+import{B as T,$ as s,a as z,t as O}from"./ui-hJOf-9t6.js";import{b as W,s as Y}from"./common-CXaJzYHh.js";W("support",`Work with me — ${T.name}`);O("[data-tiers]");z("[data-email]").forEach(e=>{e.href="mailto:"+T.email,e.tagName==="A"&&e.hasAttribute("data-email-text")&&(e.textContent=T.email)});Y();

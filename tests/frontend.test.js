@@ -1,0 +1,57 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {JSDOM} from 'jsdom';
+const read = path=>readFile(new URL(`../public/${path}`,import.meta.url),'utf8');
+test('certificate search, category filters, modal navigation and participation links',async()=>{
+  const dom=new JSDOM(await read('certifications.html'),{url:'http://localhost/certifications.html',runScripts:'outside-only',pretendToBeVisual:true});
+  const {window:w}=dom;const d=w.document;
+  w.n=selector=>d.querySelector(selector);w.L=(selector,root=d)=>[...root.querySelectorAll(selector)];w.U=()=>{};w.z=()=>{};w.K={name:'Deeksha Kriti'};
+  const source=(await read('assets/certifications.js')).replace(/^import .*;\n/gm,'').replace('export const certData','const certData');
+  w.eval(source);
+  assert.equal(d.querySelectorAll('.cert-card').length,9);
+  const search=d.querySelector('[data-cert-search]');search.value='Jarvis';search.dispatchEvent(new w.Event('input'));
+  assert.equal(d.querySelectorAll('.cert-card').length,1);assert.match(d.querySelector('.cert-card').textContent,/IBM/);
+  d.querySelector('[data-open-modal]').click();assert.equal(d.querySelector('#certModal').hidden,false);
+  assert.ok(d.querySelector('[data-modal-actions] a[href="https://github.com/DeekshaKriti07/Jarvis-AI.git"]'));
+  w.dispatchEvent(new w.KeyboardEvent('keydown',{key:'Escape'}));assert.equal(d.querySelector('#certModal').hidden,true);
+  search.value='';search.dispatchEvent(new w.Event('input'));
+  d.querySelector('[data-category="hackathons"]').click();assert.equal(d.querySelectorAll('.cert-card').length,6);
+  assert.equal(d.querySelector('#cert-meta [data-open-modal]'),null);
+  assert.equal(d.querySelector('#cert-meta a').getAttribute('href'),'episodes.html#meta-global-ai');
+  assert.match(d.querySelector('.page-band img').getAttribute('src'),/credentials-studio/);
+  dom.window.close();
+});
+test('project stories render from API, filter, and escape content',async()=>{
+  const dom=new JSDOM(await read('episodes.html'),{url:'http://localhost/episodes.html',runScripts:'outside-only',pretendToBeVisual:true});
+  const {window:w}=dom;const projects=JSON.parse(await read('data/projects.json'));
+  projects[0].summary='<img src=x onerror=alert(1)>';
+  w.AbortSignal=AbortSignal;w.fetch=async()=>({ok:true,json:async()=>({projects})});
+  w.eval((await read('assets/project-schema.js')).replace('export function', 'function'));
+  w.eval((await read('assets/projects.js')).replace(/^import .*;\n/gm,''));
+  await new Promise(resolve=>setTimeout(resolve,30));
+  assert.equal(w.document.querySelectorAll('.project-story').length,7);
+  assert.equal(w.document.querySelector('.project-story__summary img'),null);
+  assert.match(w.document.querySelector('.project-story__summary').textContent,/<img/);
+  const search=w.document.querySelector('[data-project-search]');search.value='CivicShield';search.dispatchEvent(new w.Event('input'));
+  assert.equal(w.document.querySelectorAll('.project-story').length,1);
+  assert.equal(w.document.querySelector('.project-story').id,'civicshield');
+  search.value='not-a-project';search.dispatchEvent(new w.Event('input'));assert.match(w.document.querySelector('[data-projects]').textContent,/No matching/);
+  dom.window.close();
+});
+test('bundled project snapshot works when API fails',async()=>{
+  const dom=new JSDOM(await read('episodes.html'),{url:'http://localhost/episodes.html',runScripts:'outside-only',pretendToBeVisual:true});
+  const {window:w}=dom;const projects=JSON.parse(await read('data/projects.json'));
+  w.AbortSignal=AbortSignal;w.fetch=async url=>{if(url==='/api/projects')throw new Error('Offline API');return{ok:true,json:async()=>projects};};
+  w.eval((await read('assets/project-schema.js')).replace('export function', 'function'));
+  w.eval((await read('assets/projects.js')).replace(/^import .*;\n/gm,''));await new Promise(resolve=>setTimeout(resolve,30));
+  assert.equal(w.document.querySelectorAll('.project-story').length,7);dom.window.close();
+});
+test('malformed API data falls back to valid bundled content',async()=>{
+  const dom=new JSDOM(await read('episodes.html'),{url:'http://localhost/episodes.html#%zz',runScripts:'outside-only',pretendToBeVisual:true});
+  const {window:w}=dom;const projects=JSON.parse(await read('data/projects.json'));
+  w.AbortSignal=AbortSignal;w.fetch=async url=>({ok:true,json:async()=>url==='/api/projects'?{projects:[null]}:projects});
+  w.eval((await read('assets/project-schema.js')).replace('export function','function'));
+  w.eval((await read('assets/projects.js')).replace(/^import .*;\n/gm,''));await new Promise(resolve=>setTimeout(resolve,30));
+  assert.equal(w.document.querySelectorAll('.project-story').length,projects.length);dom.window.close();
+});

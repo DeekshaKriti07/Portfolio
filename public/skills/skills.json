@@ -1,0 +1,678 @@
+{
+  "note": "Every skill here comes from a project or certificate on this site. RuralDoc AI is a project by five authors, so its entries describe the technologies and practices the project used and what I learned from working on it. Ask me about my own part in it.",
+  "project": {
+    "kicker": "The project behind most of these skills",
+    "title": "RuralDoc AI",
+    "lead": "RuralDoc AI is a web-based prototype that gives rural users in India health information and preliminary symptom-triage support. It combines local knowledge retrieval, a language model, a deterministic triage engine and first-aid guidance. It is deployed live and written up as a paper in IJVRA.",
+    "blocks": [
+      {
+        "h": "How it works",
+        "p": "A keyword emergency check runs first. The symptom flow then asks up to three follow-up rounds and a deterministic engine ranks up to four possible conditions. Local BM25-style retrieval over 4,617 passages and configurable language-model inference (Gemma 3 through Ollama) power the chatbot."
+      },
+      {
+        "h": "What is in it",
+        "p": "26 first-aid topics, interface configurations for English and nine Indian languages, personal-record storage, medicine reminders, browser voice input and output, and a nearby-care search that needs internet access."
+      },
+      {
+        "h": "How it was tested",
+        "p": "46 synthetic scenarios (11 of them emergencies), 145 symptom-removal variants and simulated dialogues. The expected condition ranked first in 45 of 46 scenarios and in the top three in all 46."
+      },
+      {
+        "h": "What it does not claim",
+        "p": "The paper states that these checks show agreement with authored expectations only. They do not establish clinical accuracy, safety, effectiveness or Gemma 3 performance, and clinician review, language assessment and usability testing are still needed."
+      }
+    ],
+    "stats": [
+      {
+        "v": "4,617",
+        "k": "searchable passages"
+      },
+      {
+        "v": "26",
+        "k": "first-aid guides"
+      },
+      {
+        "v": "10",
+        "k": "interface languages"
+      },
+      {
+        "v": "46",
+        "k": "synthetic scenarios"
+      },
+      {
+        "v": "145",
+        "k": "symptom-removal variants"
+      },
+      {
+        "v": "5",
+        "k": "co-authors"
+      }
+    ],
+    "stack": [
+      "React",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "JWT",
+      "bcrypt",
+      "Gemma 3",
+      "Ollama",
+      "BM25 retrieval",
+      "Render"
+    ],
+    "links": [
+      {
+        "label": "Read the paper ↗",
+        "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+        "external": true
+      },
+      {
+        "label": "Open the live app ↗",
+        "href": "https://ruraldoc-ai-qigo.onrender.com/",
+        "external": true
+      },
+      {
+        "label": "Publication certificate",
+        "href": "certifications.html#cert-ruraldoc",
+        "external": false
+      }
+    ]
+  },
+  "categories": [
+    {
+      "id": "frontend",
+      "label": "Frontend & interfaces",
+      "lead": "How I build what users see and touch: component-based interfaces, the languages behind them, and voice.",
+      "skills": [
+        {
+          "name": "React",
+          "summary": "Component-based interfaces for web apps.",
+          "detail": "RuralDoc AI uses a React frontend for its user-facing modules: the symptom flow, 26 first-aid topics, personal records and medicine reminders. I also passed HackerRank's Frontend Developer (React) role certification test, earned on 17 October 2026.",
+          "tags": [
+            "RuralDoc AI",
+            "HackerRank"
+          ],
+          "evidence": [
+            {
+              "label": "React certificate",
+              "href": "certifications.html#cert-frontend",
+              "external": false
+            },
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "JavaScript",
+          "summary": "One language on both sides of the stack.",
+          "detail": "RuralDoc AI is JavaScript from end to end: React in the browser and Node.js with Express on the server. Working across both sides shows how an interface request becomes a stored record and a response.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "HTML & CSS",
+          "summary": "The markup and styling behind the web interface.",
+          "detail": "Every React screen renders to HTML and CSS. In RuralDoc AI that covers the symptom flow, the first-aid guides and the settings for ten interface languages.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Open the live app ↗",
+              "href": "https://ruraldoc-ai-qigo.onrender.com/",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Multilingual interface design",
+          "summary": "English plus nine Indian languages.",
+          "detail": "RuralDoc AI ships interface configurations for English and nine Indian languages, so rural users can read health information in their own language. The paper is open that translation accuracy and dialect coverage still need assessment by native speakers.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Voice input and output",
+          "summary": "Browser speech recognition and speech synthesis.",
+          "detail": "RuralDoc AI includes browser-based voice functions: speech recognition for input and speech synthesis for output. Both depend on platform support, and voice performance has not yet been formally evaluated.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": "Backend & data",
+      "lead": "The server side: APIs, storage, accounts and the features that remember users over time.",
+      "skills": [
+        {
+          "name": "Node.js & Express",
+          "summary": "A JavaScript backend that serves the app.",
+          "detail": "RuralDoc AI's backend is built on Node.js and Express. The triage engine lives there, in the same backend that holds the evaluation script (backend/scripts/evalTriage.js) used to test it.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "MySQL",
+          "summary": "Relational storage for application data.",
+          "detail": "RuralDoc AI stores its data in MySQL. Its feature set includes personal-record storage and medicine reminders, which are the parts of the app that need data to persist between visits.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Authentication with JWT and bcrypt",
+          "summary": "Token-based login with hashed passwords.",
+          "detail": "The RuralDoc AI code implements JWT-based authentication and bcrypt password hashing. The paper states this is an observation about the code and not a security assessment. I keep the same distinction: hashing and tokens are a foundation, not proof that an app is secure.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Personal records and reminders",
+          "summary": "Features that store user data over time.",
+          "detail": "RuralDoc AI lets users keep personal records and set medicine reminders. Whether reminder notifications arrive while the browser is closed has not been evaluated, and the paper lists it as an open question.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI & language models",
+      "lead": "Working with language models, retrieval and rule-based logic, and deciding where each one belongs.",
+      "skills": [
+        {
+          "name": "Local LLM integration (Gemma 3 with Ollama)",
+          "summary": "Running a language model on your own machine.",
+          "detail": "RuralDoc AI uses configurable language-model inference. The development setup runs Gemma 3 (gemma3:12b) through Ollama, and the project archive defaults to gemma3:4b. Running the model locally supports the project's offline-oriented design.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Prompt design with safety constraints",
+          "summary": "Instructions that steer a model away from risky output.",
+          "detail": "Prompt instructions in RuralDoc AI aim to keep ordinary chatbot and symptom-assessment answers free of medicine names and doses. The paper is candid that this restriction is not guaranteed on every fallback path.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Structured model output",
+          "summary": "Parsing JSON from a model, with fallbacks.",
+          "detail": "AI calls in RuralDoc AI try to parse structured JSON and fall back to a safe path when parsing fails. Comprehensive schema validation is listed in the paper as work still to do.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Retrieval with BM25-style keyword search",
+          "summary": "Finding relevant passages without a vector database.",
+          "detail": "The active chat path in RuralDoc AI uses local BM25-style keyword search over 4,617 passages. A separate embedding module exists in the project but is not used by the chat path, and the paper takes care not to claim dense-vector retrieval.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Knowledge-base preparation",
+          "summary": "Assembling the content a system retrieves from.",
+          "detail": "The searchable index combines 4,525 entries from a MedQuAD-derived subset, 30 reference entries and 62 hand-authored clinical-guide passages. 26 first-aid guides are kept as a separate resource. The paper also records which provenance questions are still open.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Rule-based symptom triage",
+          "summary": "Deterministic scoring that ranks possible conditions.",
+          "detail": "A deterministic engine compares reported features with a clinical guide and adjusts for patient group, symptom duration and saved-record flags. It returns up to four ranked possibilities with matched symptoms, likelihood labels, score shares and distinguishing features. These are heuristic rankings, not diagnoses.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Emergency detection and follow-up flow",
+          "summary": "Safety checks first, then up to three questions.",
+          "detail": "A keyword-based emergency check runs before any model processing. If nothing urgent is found, the symptom flow can ask up to three follow-up rounds, which users can skip where the interface allows.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Generative AI fundamentals",
+          "summary": "The core ideas behind generative models.",
+          "detail": "Completed Google Cloud's Introduction to Generative AI and earned the completion badge on 8 August 2026.",
+          "tags": [
+            "Google Cloud"
+          ],
+          "evidence": [
+            {
+              "label": "Generative AI badge",
+              "href": "certifications.html#cert-genai",
+              "external": false
+            }
+          ]
+        },
+        {
+          "name": "Building and deploying an AI agent",
+          "summary": "From idea to a running agent.",
+          "detail": "In HackerRank Orchestrate (October 2026) I built and deployed an AI agent. HackerRank verified a final rank of 761 out of 4,094 participants.",
+          "tags": [
+            "HackerRank"
+          ],
+          "evidence": [
+            {
+              "label": "Orchestrate certificate",
+              "href": "certifications.html#cert-orchestrate",
+              "external": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "testing",
+      "label": "Testing & evaluation",
+      "lead": "Checking that a system does what it claims, and saying plainly what the checks do not prove.",
+      "skills": [
+        {
+          "name": "Evaluation scripting",
+          "summary": "A repeatable script that runs the checks.",
+          "detail": "RuralDoc AI includes an evaluation script, backend/scripts/evalTriage.js, that runs predefined cases against the triage engine. It was run on 24 October 2026 for the paper, with AI assistance, as the paper discloses.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Synthetic test scenarios",
+          "summary": "46 predefined cases, 11 of them emergencies.",
+          "detail": "The expected condition ranked first in 45 of 46 scenarios and in the top three in all 46. All 11 designated emergencies received emergency urgency.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Perturbation testing",
+          "summary": "Removing one symptom at a time.",
+          "detail": "The check generated 145 variants by removing each reported symptom or context feature in turn from eligible cases. The expected condition stayed in the top three in all 145. The paper notes this is not independent cross-validation.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Simulated dialogue testing",
+          "summary": "Symptoms revealed over several rounds.",
+          "detail": "In simulated dialogues the expected condition reached the top three in 44 of 46 cases, with a mean of 1.8 question rounds. This tests the rule engine, not Gemma 3.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Honest reporting of limits",
+          "summary": "Separating technical checks from clinical claims.",
+          "detail": "The paper states that the results show agreement with authored expectations only. They do not establish clinical accuracy, safety, effectiveness or Gemma 3 performance. Naming what was not tested (language quality, voice, usability, real-world use) is part of the work.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "Research & writing",
+      "lead": "Turning a project into a published paper, with the evidence and the caveats written down.",
+      "skills": [
+        {
+          "name": "Technical writing",
+          "summary": "A published technical note.",
+          "detail": "Co-authored “RuralDoc AI: An AI Healthcare Assistant for Rural Areas”, published in IJVRA Volume 4, Issue 10 (October 2026, pages f762 to f766, ISSN 2984-8903).",
+          "tags": [
+            "RuralDoc AI",
+            "IJVRA"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            },
+            {
+              "label": "Publication certificate",
+              "href": "certifications.html#cert-ruraldoc",
+              "external": false
+            }
+          ]
+        },
+        {
+          "name": "Literature review and citation",
+          "summary": "Grounding a project in prior work.",
+          "detail": "The paper cites work from the World Health Organization and India's Ministry of Health, as well as research on BM25, retrieval-augmented generation, symptom-checker evaluations and the DECIDE-AI reporting guideline.",
+          "tags": [
+            "RuralDoc AI",
+            "IJVRA"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "AI ethics and responsible use",
+          "summary": "The risks and limits of AI in health.",
+          "detail": "The paper discusses inaccurate generative output, automation bias, privacy and the need for clinician oversight, drawing on WHO guidance on the ethics and governance of AI for health.",
+          "tags": [
+            "RuralDoc AI",
+            "IJVRA"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Design for low-resource settings",
+          "summary": "Building for rural users in India.",
+          "detail": "The project targets rural users in India with an offline-oriented design, multilingual interfaces and first-aid guidance. The paper describes the system as offline-oriented rather than fully offline, because complete disconnected operation has not been demonstrated.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Teamwork",
+          "summary": "A five-author project with faculty guidance.",
+          "detail": "RuralDoc AI was written by five authors from the Department of Computer Science and Engineering, with project guidance from a faculty member acknowledged in the paper.",
+          "tags": [
+            "RuralDoc AI",
+            "IJVRA"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "label": "Deployment & tooling",
+      "lead": "Getting software running where other people can use it, and using AI assistants openly.",
+      "skills": [
+        {
+          "name": "Cloud deployment on Render",
+          "summary": "Putting an app on the public internet.",
+          "detail": "RuralDoc AI is deployed as a live web app on Render, so anyone can try it in a browser without installing anything.",
+          "tags": [
+            "RuralDoc AI"
+          ],
+          "evidence": [
+            {
+              "label": "Open the live app ↗",
+              "href": "https://ruraldoc-ai-qigo.onrender.com/",
+              "external": true
+            }
+          ]
+        },
+        {
+          "name": "Working with AI assistants, openly",
+          "summary": "Using AI tools and saying so.",
+          "detail": "The paper discloses where an AI assistant helped (source-code inspection, evaluation interpretation, reference identification and language editing) and states that the authors checked the evidence themselves. The IBM Bob 2.0 certificate lists the event's tools, among them Antigravity, Anthropic Claude, ChatGPT, OpenAI and Llama 3.2.",
+          "tags": [
+            "RuralDoc AI",
+            "IBM Bob 2.0"
+          ],
+          "evidence": [
+            {
+              "label": "Read the paper ↗",
+              "href": "https://ijpub.org/ijvra/viewpaperforall.php?paper=IJVRA2610593",
+              "external": true
+            },
+            {
+              "label": "IBM Bob 2.0 certificate",
+              "href": "certifications.html#cert-ibmbob",
+              "external": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "delivery",
+      "label": "Hackathons & contests",
+      "lead": "Building and solving against the clock, and against thousands of other people.",
+      "skills": [
+        {
+          "name": "Competing at scale",
+          "summary": "Rank 761 of 4,094.",
+          "detail": "HackerRank Orchestrate, October 2026 edition: final rank #761 out of 4,094, verified by HackerRank.",
+          "tags": [
+            "HackerRank"
+          ],
+          "evidence": [
+            {
+              "label": "Orchestrate certificate",
+              "href": "certifications.html#cert-orchestrate",
+              "external": false
+            }
+          ]
+        },
+        {
+          "name": "Time-boxed building",
+          "summary": "An eight-hour online hackathon.",
+          "detail": "HackDay 1.0 (20 September 2026), organised by DECODEP with Unstop and GO., ran for eight hours online. I hold the certificate of participation.",
+          "tags": [
+            "HackDay 1.0"
+          ],
+          "evidence": [
+            {
+              "label": "HackDay 1.0 certificate",
+              "href": "certifications.html#cert-hackday",
+              "external": false
+            }
+          ]
+        },
+        {
+          "name": "Submitting a working solution",
+          "summary": "Three days, one submission.",
+          "detail": "IBM Bob 2.0 (25 to 27 September 2026), run by lablab.ai: I completed and submitted a solution. The certificate recognises performance and attendance.",
+          "tags": [
+            "IBM Bob 2.0"
+          ],
+          "evidence": [
+            {
+              "label": "IBM Bob 2.0 certificate",
+              "href": "certifications.html#cert-ibmbob",
+              "external": false
+            }
+          ]
+        },
+        {
+          "name": "Quiz and knowledge contests",
+          "summary": "Gemini Quiz War.",
+          "detail": "Participated in the Gemini Quiz War organised by DECODEP and hold the certificate of participation.",
+          "tags": [
+            "Gemini Quiz War"
+          ],
+          "evidence": [
+            {
+              "label": "Gemini Quiz War certificate",
+              "href": "certifications.html#cert-gemini",
+              "external": false
+            }
+          ]
+        },
+        {
+          "name": "Event experience",
+          "summary": "Six events entered in 2026.",
+          "detail": "HackerRank Orchestrate, IBM Bob 2.0, HackDay 1.0, Gemini Quiz War, the Meta Global AI Developer Hackathon and Fund My Crazy Event.",
+          "tags": [
+            "Hackathons"
+          ],
+          "evidence": [
+            {
+              "label": "All certificates",
+              "href": "certifications.html",
+              "external": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

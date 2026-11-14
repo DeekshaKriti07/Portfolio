@@ -1,0 +1,1 @@
+Personal portfolio of Deeksha Kriti showcasing projects, hackathons, certifications and research, built with HTML, CSS, JavaScript, Node.js, Express and PostgreSQL.

@@ -18,6 +18,7 @@
   <script type="module" crossorigin src="./assets/index-CTIiaE7-.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/ui-hJOf-9t6.js">
   <link rel="stylesheet" crossorigin href="./assets/ui-CPzsqYSy.css">
+  <link rel="stylesheet" href="assets/resume.css" />
 </head>
 <body data-page="home">
   <a class="skip" href="#main">Skip to content</a>
@@ -186,8 +187,12 @@
         <div class="sub__row" data-reveal>
           <div class="platforms" data-platforms></div>
           <button class="key key--light" type="button" data-copy-rss>Copy email</button>
-          <a class="key key--light" href="media/deeksha-kriti-resume.pdf">View résumé (PDF)</a>
-          <a class="key key--light" href="media/deeksha-kriti-resume.pdf" download>Download résumé</a>
+          <div class="resume-actions" role="group" aria-label="Resume">
+            <a class="key key--light" href="resume.html">View Resume</a>
+            <a class="key key--light resume-download" href="media/deeksha-kriti-resume.pdf" download aria-label="Download Resume PDF" title="Download Resume PDF">
+              <img src="assets/resume-download.svg" width="20" height="20" alt="" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

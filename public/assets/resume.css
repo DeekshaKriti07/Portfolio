@@ -1,0 +1,106 @@
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-actions .key {
+  min-height: 44px;
+}
+
+.resume-actions .resume-download {
+  width: 44px;
+  padding: 0;
+}
+
+.resume-page {
+  background: var(--paper);
+}
+
+.resume-layout {
+  max-width: 1000px;
+  padding-block: clamp(28px, 5vw, 64px);
+}
+
+.resume-heading {
+  margin-bottom: clamp(20px, 4vw, 38px);
+}
+
+.resume-heading .kicker {
+  margin-top: clamp(24px, 4vw, 42px);
+}
+
+.resume-heading h1 {
+  color: var(--navy);
+  font: 400 clamp(3.4rem, 9vw, 7rem)/.95 var(--font-display);
+  margin-top: .1em;
+}
+
+.resume-reader {
+  border: 2px solid var(--navy);
+  border-radius: 16px;
+  background: var(--paper-2);
+  box-shadow: 0 6px 0 var(--navy);
+}
+
+.resume-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px clamp(10px, 3vw, 24px) 16px;
+  border-radius: 13px 13px 0 0;
+  background: var(--navy);
+  color: var(--paper);
+}
+
+.resume-page-links {
+  display: flex;
+  gap: 6px;
+}
+
+.resume-page-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: 10px;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  white-space: nowrap;
+  font-size: .875rem;
+}
+
+.resume-page-links a:hover {
+  background: var(--paper);
+  color: var(--navy);
+}
+
+.resume-toolbar a:focus-visible {
+  outline-color: var(--paper);
+}
+
+.resume-sheets {
+  display: grid;
+  gap: clamp(14px, 3vw, 32px);
+  padding: clamp(8px, 4vw, 36px);
+}
+
+.resume-sheet {
+  display: block;
+  width: min(100%, 760px);
+  margin-inline: auto;
+  scroll-margin-top: 130px;
+  background: #fff;
+  box-shadow: 0 2px 14px #292d4830;
+}
+
+.resume-sheet img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

@@ -48,6 +48,7 @@
       "Agent workflows"
     ],
     "repo": "https://github.com/DeekshaKriti07/CivicShield",
+    "live": "https://civicshield-app.onrender.com/",
     "certificate": "cert-hackday",
     "scope": "Prototype scope: human-reviewed response planning and simulated dispatch."
   },
